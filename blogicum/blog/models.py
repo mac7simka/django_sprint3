@@ -12,7 +12,9 @@ class Post(PublishedModel, CreatedModel):
     pub_date = models.DateTimeField(
         auto_now=False,
         verbose_name='Дата и время публикации',
-        help_text='Если установить дату и время в будущем — можно делать отложенные публикации.')
+        help_text=(
+            'Если установить дату и время в будущем — можно '
+            'делать отложенные публикации.'))
 
     author = models.ForeignKey(
         User,
@@ -50,7 +52,8 @@ class Category(PublishedModel, CreatedModel):
     slug = models.SlugField(
         unique=True,
         verbose_name='Идентификатор',
-        help_text='Идентификатор страницы для URL; разрешены символы латиницы, цифры, дефис и подчёркивание.')
+        help_text=('Идентификатор страницы для URL; разрешены символы '
+                   'латиницы, цифры, дефис и подчёркивание.'))
 
     class Meta:
         verbose_name = 'категория'
