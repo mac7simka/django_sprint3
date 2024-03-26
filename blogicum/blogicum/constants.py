@@ -1,0 +1,3 @@
+AMOUNT_POSTS = 5
+
+LENGHT = 256
