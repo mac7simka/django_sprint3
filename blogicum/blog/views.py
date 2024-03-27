@@ -15,13 +15,12 @@ def index(request):
     return render(request, template_name, context)
 
 
-def post_id(request, id):
-    pk = id
+def post_detail(request, post_id):
     template_name = 'blog/detail.html'
     post = get_object_or_404(Post.published,
                              category__is_published=True,
                              pub_date__date__lt=datetime.now(),
-                             pk=pk)
+                             pk=post_id)
     context = {
         'post': post,
     }
@@ -35,8 +34,7 @@ def category_posts(request, category_slug):
                                  )
     posts = category.posts.filter(
         is_published=True,
-        pub_date__date__lt=datetime.now(),
-        category__slug=category_slug)
+        pub_date__date__lt=datetime.now())
 
     context = {'category': category, 'post_list': posts}
     return render(request, template_name, context)
