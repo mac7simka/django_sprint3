@@ -26,7 +26,6 @@ class Post(PublishedModel, CreatedModel):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='posts',
         verbose_name='Автор публикации')
 
     location = models.ForeignKey(
@@ -34,20 +33,19 @@ class Post(PublishedModel, CreatedModel):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name='posts',
         verbose_name='Местоположение')
 
     category = models.ForeignKey(
         'Category',
         on_delete=models.SET_NULL,
         null=True,
-        related_name='posts',
         verbose_name='Категория')
 
     objects = models.Manager()
     published = PublishManager()
 
     class Meta:
+        default_related_name = 'posts'
         verbose_name = 'публикация'
         verbose_name_plural = 'Публикации'
         ordering = ('-pub_date',)
