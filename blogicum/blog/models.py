@@ -1,9 +1,10 @@
+from core.models import CreatedModel, PublishedModel
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.shortcuts import reverse
 
-from core.models import CreatedModel, PublishedModel
 from blogicum.constants import LENGHT
+
 
 User = get_user_model()
 

@@ -1,8 +1,8 @@
 from datetime import datetime
 
+from blog.models import Category, Post
 from django.shortcuts import get_object_or_404, render
 
-from blog.models import Category, Post
 from blogicum.constants import AMOUNT_POSTS
 
 
